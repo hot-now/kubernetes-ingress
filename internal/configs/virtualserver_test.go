@@ -1117,7 +1117,7 @@ func TestGenerateLocationForProxying(t *testing.T) {
 
 	expected := version2.Location{
 		Path:                     "/",
-		Snippets:                 []string{"# location snippet"},
+		Snippets:                 []string{"# location snippet", "# location snippet from route"},
 		ProxyConnectTimeout:      "30s",
 		ProxyReadTimeout:         "31s",
 		ProxySendTimeout:         "32s",
@@ -1132,7 +1132,7 @@ func TestGenerateLocationForProxying(t *testing.T) {
 		ProxyNextUpstreamTries:   0,
 	}
 
-	result := generateLocationForProxying(path, upstreamName, conf_v1.Upstream{}, &cfgParams)
+	result := generateLocationForProxying(path, upstreamName, conf_v1.Upstream{}, &cfgParams, "# location snippet from route")
 	if !reflect.DeepEqual(result, expected) {
 		t.Errorf("generateLocationForProxying() returned %v but expected %v", result, expected)
 	}

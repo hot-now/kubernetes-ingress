@@ -299,6 +299,10 @@ action:
      - The matching rules for advanced content-based routing. Requires the default ``action`` or ``splits``.  Unmatched requests will be handled by the default ``action`` or ``splits``.
      - `matches <#match>`_
      - No
+   * - ``snippet``
+     - The location snippet specific to this route that gets added after the global location snippets configured in the configmap.
+     - `string`
+     - No
 ```
 
 \* -- a subroute must include exactly one of the following: `action` or `splits`.
